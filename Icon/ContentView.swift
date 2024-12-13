@@ -8,25 +8,29 @@
 import SwiftUI
 
 struct RenderView: View {
-    let size: CGFloat = 1024
+    static var size: CGFloat = 1024
     
     var body: some View {
         ZStack {
             Color.black
-            RoundedRectangle(cornerRadius: size / 5.5, style: .continuous)
-                .strokeBorder(lineWidth: size / 70)
-                .foregroundStyle(.white.opacity(0.8))
-                .padding(size / 19)
+//            RoundedRectangle(cornerRadius: 200, style: .continuous)
+//                .strokeBorder(lineWidth: Self.size / 60)
+//                .foregroundStyle(.white)
+//                .padding(Self.size / 18)
             Circle()
-                .strokeBorder(lineWidth: size / 35)
-                .foregroundStyle(.yellow)
-                .frame(width: size / 2, height: size / 2)
-            Image(systemName: "control")
-                .font(.system(size: size / 5, weight: .heavy))
-                .foregroundStyle(.orange)
-            
+                .strokeBorder(lineWidth: Self.size / 35)
+                .foregroundStyle(.white)
+                .frame(width: Self.size / 2, height: Self.size / 2)
+            Circle()
+                .stroke(.white, style: StrokeStyle(
+                    lineWidth: Self.size / 30,
+                    lineCap: .round,
+                    dashPhase: 0
+                ))
+                .rotationEffect(.radians(.pi / 3))
+                .frame(width: Self.size / 30, height: Self.size / 30)
         }
-        .frame(width: size, height: size)
+        .frame(width: Self.size, height: Self.size)
     }
 }
 
